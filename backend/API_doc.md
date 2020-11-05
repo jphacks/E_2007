@@ -1,7 +1,7 @@
 # TweetsAnalysis
 ツイッターのツイート内容を分析する API
 
-https://jphacks-e2007.azurewebsites.net/api/tweets-analysis/{user_id}?code=IsgyAkdiqg6CXP3jd6wetsiBLhlslZN5Sd0k8xPdaECZlzDNGJxRBA==
+https://jphacks-e2007.azurewebsites.net/api/tweets-analysis/{user_id}
 
 **{user_id} をツイッターのユーザー id に置き換えてください**
 
