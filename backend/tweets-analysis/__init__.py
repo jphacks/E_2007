@@ -35,6 +35,7 @@ def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.Docum
         else:
             tweets = collect_tweets.get_all_tweets(user_id)
         filtered_tweets = collect_tweets.filter_tweets(tweets)
+        user_info = collect_tweets.get_user(user_id)
 
         # ==========
         # analyze tweets
@@ -46,12 +47,15 @@ def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.Docum
         if report:
             new_report = {
                 **report,
+                "name": user_info.name,
                 "updated_at": now_dt.strftime(DATE_FORMAT),
                 "tweets": [*analyzed_tweets, *report['tweets']]
             }
         else: 
             new_report = {
                 "user_id": user_id,
+                "name": user_info.name,
+                "profile_image_url": user_info.profile_image_url,
                 "updated_at": now_dt.strftime(DATE_FORMAT),
                 "tweets": analyzed_tweets
             }
