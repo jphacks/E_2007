@@ -1,4 +1,5 @@
 # 更新情報
+- 2020/11/06: WeeklyReports coutnerを追加しました。
 - 2020/11/06: IncrementCounter 実装しました。
 - 2020/11/06: RecentlyReports 実装しました。
 - 2020/11/06: WeeklyReports 実装しました。
@@ -71,12 +72,20 @@ https://jphacks-e2007.azurewebsites.net/api/tweets-analysis/{user_id}/weekly-rep
     "date": "YYYY/MM/DD" 日にち,
     "positives": 0 ポジティブの数,
     "negatives": 0 ネガティブの数,
+    "counts": 0 カウントした回数,
     "tweets": [
       {
         "text": "String" ツイート内容,
         "created_at": "YYYY/MM/DD HH:mm:ss" ツイートされた日時,
         "p_or_n": "negative" もしくは "positive"
       }, 
+      ...
+    ],
+    "coutner": [
+      {
+        "num": 0 カウント数量,
+        "created_at": "YYYY/MM/DD HH:mm:ss" カウントした日時
+      },
       ...
     ]
   },
