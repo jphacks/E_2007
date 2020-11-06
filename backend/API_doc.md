@@ -1,3 +1,8 @@
+# 更新情報
+- 2020/11/06: TweetAnalysis の POST で返すツイートの量を最大で5個にしました。
+- 2020/11/06: TweetAnalysis のレスポンスのデータが文字化け(Unicode)になっているのを解消しました。
+
+
 # TweetsAnalysis
 ツイッターのツイート内容を分析する API
 
@@ -30,6 +35,7 @@ https://jphacks-e2007.azurewebsites.net/api/tweets-analysis/{user_id}
 - user_id: ツイッターのユーザー id
 
 ### Return
+- ツイートの情報。最大で5つ。
 ```json
 "reports": [
   {
