@@ -1,0 +1,8 @@
+{
+  "config": null,
+  "hidden_size": 768,
+  "model_class": "BertForSequenceClassification",
+  "model_name": "cl-tohoku/bert-base-japanese-whole-word-masking",
+  "model_type": "bert",
+  "name": null
+}
