@@ -48,6 +48,7 @@ def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.Docum
             new_report = {
                 **report,
                 "name": user_info.name,
+                "profile_image_url": user_info.profile_image_url,
                 "updated_at": now_dt.strftime(DATE_FORMAT),
                 "tweets": [*analyzed_tweets, *report['tweets']]
             }
