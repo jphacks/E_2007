@@ -58,4 +58,4 @@ def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.Docum
         db.set(func.Document.from_dict(new_report))
         resp_data = new_report["tweets"]
     
-    return func.HttpResponse(json.dumps({'reports': resp_data}), headers={'Content-Type': 'application/json'})
+    return func.HttpResponse(json.dumps({'reports': resp_data}, ensure_ascii=False), headers={'Content-Type': 'application/json'})
