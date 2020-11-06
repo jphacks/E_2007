@@ -1,4 +1,5 @@
 # 更新情報
+- 2020/11/06: RecentlyReports 実装しました。
 - 2020/11/06: WeeklyReports 実装しました。
 - 2020/11/06: TweetAnalysis の POST で返すツイートの量を最大で5個にしました。
 - 2020/11/06: TweetAnalysis のレスポンスのデータが文字化け(Unicode)になっているのを解消しました。
@@ -80,4 +81,35 @@ https://jphacks-e2007.azurewebsites.net/api/tweets-analysis/{user_id}/weekly-rep
   },
   ...
 ]
+```
+
+# RecentlyReports
+最新のレポートを取得する API
+
+https://jphacks-e2007.azurewebsites.net/api/tweets-analysis/{user_id}/recently-reports?num=20
+
+**{user_id} をツイッターのユーザー id に置き換えてください**
+
+## GET, POST
+
+### Input
+- user_id: ツイッターのユーザー id
+- num: ツイート取得件数(デフォルトは 20)
+
+### Return
+- 現在から指定した回数文集計したレポート
+
+```json
+"reports": {
+  "positives": 0 ポジティブの数,
+  "negatives": 0 ネガティブの数,
+  "tweets": [
+    {
+      "text": "String" ツイート内容,
+      "created_at": "YYYY/MM/DD HH:mm:ss" ツイートされた日時,
+      "p_or_n": "negative" もしくは "positive"
+    }, 
+    ...
+  ]
+}
 ```
