@@ -1,4 +1,5 @@
 # 更新情報
+- 2020/11/06: IncrementCounter 実装しました。
 - 2020/11/06: RecentlyReports 実装しました。
 - 2020/11/06: WeeklyReports 実装しました。
 - 2020/11/06: TweetAnalysis の POST で返すツイートの量を最大で5個にしました。
@@ -112,4 +113,30 @@ https://jphacks-e2007.azurewebsites.net/api/tweets-analysis/{user_id}/recently-r
     ...
   ]
 }
+```
+
+# IncrementCounter
+カウンター API
+
+https://jphacks-e2007.azurewebsites.net/api/counter/{user_id}/increment?num=1
+
+**{user_id} をツイッターのユーザー id に置き換えてください**
+
+## GET, POST
+
+### Input
+- user_id: ツイッターのユーザー id
+- num: カウンター数(デフォルトは 1)
+
+### Return
+- 最新 5 件のカウンター情報
+
+```json
+"reports": [
+  {
+    "created_at": "YYYY/MM/DD HH:mm:ss" カウント押された日時,
+    "num": 1
+  },
+  ...
+]
 ```
