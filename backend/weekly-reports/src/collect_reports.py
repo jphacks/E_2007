@@ -1,9 +1,17 @@
 from datetime import datetime, timedelta
 
-from .config import DATE_FORMAT
+from .config import DATE_FORMAT, ENV
 
 
 DAY_FORMAT = "%Y/%m/%d"
+
+
+def get_now():
+    if ENV == "local":
+        return datetime.now()
+    else:
+        return datetime.now() + timedelta(hours=9)
+
 
 def _is_equal_day(d1: datetime, d2: datetime):
     return d1.year == d2.year and d1.month == d2.month and d1.day == d2.day
@@ -12,7 +20,7 @@ def _is_equal_day(d1: datetime, d2: datetime):
 def collect_reports_weekly(tweets: list, counter: list) -> list:
     str2date = lambda s: datetime.strptime(s, DATE_FORMAT)
     delta_day = timedelta(days=1)
-    curr_date = datetime.now()
+    curr_date = get_now()
     twt_idx = 0
     cnt_idx = 0
 

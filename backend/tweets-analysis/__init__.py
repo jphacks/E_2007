@@ -4,8 +4,15 @@ import json
 
 import azure.functions as func
 
-from .src.config import DATE_FORMAT
+from .src.config import DATE_FORMAT, ENV
 from .src import analyze_tweets, collect_tweets
+
+
+def get_now():
+    if ENV == "local":
+        return datetime.datetime.now()
+    else:
+        return datetime.datetime.now() + datetime.timedelta(hours=9)
 
 
 def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.DocumentList) -> func.HttpResponse:
@@ -13,7 +20,7 @@ def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.Docum
     # define vars
     user_id = req.route_params.get('userId')
     report = len(reports) and reports[0]
-    now_dt = datetime.datetime.now()
+    now_dt = get_now()
     logging.info(f'Python HTTP trigger function processed a request. user_id = {user_id}')
 
     resp_data = []
