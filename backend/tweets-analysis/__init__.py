@@ -29,7 +29,7 @@ def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.Docum
         # collect tweets
         logging.info(f'Get tweets and filter them.')
         logging.info(f'report = {report}')
-        if report:
+        if report and "updated_at" in report:
             updated_at = datetime.datetime.strptime(report["updated_at"], DATE_FORMAT)
             tweets = collect_tweets.get_all_tweets(user_id, updated_at)
         else:
@@ -50,7 +50,7 @@ def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.Docum
                 "name": user_info.name,
                 "profile_image_url": user_info.profile_image_url,
                 "updated_at": now_dt.strftime(DATE_FORMAT),
-                "tweets": [*analyzed_tweets, *report['tweets']]
+                "tweets": [*analyzed_tweets, *report['tweets']] if "tweets" in report else [*analyzed_tweets]
             }
         else: 
             new_report = {
