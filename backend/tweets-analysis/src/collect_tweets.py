@@ -28,7 +28,7 @@ def get_all_tweets(user_id: str, from_dt: datetime or None = None) -> list:
 
         tweet_info = {
             "text": tweet.text,
-            "created_at": tweet.created_at.strftime(DATE_FORMAT)
+            "created_at": tweeted_at.strftime(DATE_FORMAT)
         }
         result.append(tweet_info)
 
