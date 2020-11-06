@@ -11,7 +11,7 @@ def main(req: func.HttpRequest, reports: func.DocumentList) -> func.HttpResponse
     # define vars
     user_id = req.route_params.get('userId')
     report = len(reports) and reports[0]
-    if not report:
+    if not report or "tweets" not in report:
         return func.HttpResponse(f"report not found. user_id = {user_id}", status_code=404)
 
     logging.info(f'Python HTTP trigger function processed a request. user_id = {user_id}')

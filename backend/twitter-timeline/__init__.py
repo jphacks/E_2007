@@ -37,6 +37,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     result = []
     for tweet in tweepy.Cursor(api.user_timeline, id=user_id).items(10):
         print("="*8)
+        print(tweet.user.profile_image_url)
+        print(tweet.user.name)
         print(tweet.user.screen_name)
         print(tweet.text)
         print(tweet.created_at)

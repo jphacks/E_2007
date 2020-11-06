@@ -18,7 +18,7 @@ def main(req: func.HttpRequest, db: func.Out[func.Document], reports: func.Docum
 
     resp_data = []
     if req.method == 'GET':
-        if not report:
+        if not report or "tweets" not in report:
             return func.HttpResponse(f"report not found. user_id = {user_id}", status_code=404)
 
         for tweet_data in report["tweets"]:
