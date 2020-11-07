@@ -1,0 +1,9 @@
+import os
+
+
+CONSUMER_API_KEY = os.environ["CONSUMER_API_KEY"]
+CONSUMER_SECRET_KEY =  os.environ["CONSUMER_SECRET_KEY"]
+ACCESS_TOKEN_KEY =  os.environ["ACCESS_TOKEN_KEY"]
+ACCESS_TOKEN_SECRET =  os.environ["ACCESS_TOKEN_SECRET"]
+ENV =  os.environ["ENV"]
+DATE_FORMAT = "%Y/%m/%d %H:%M:%S"
