@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37562b39ff933b245ac2f35d87edbcd6, type: 3}
+  m_Name: BlendShape.Pose
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: 399016103971757014, guid: 81da78fde9dd115499dd9c7ba003d2f3, type: 3}
+  BlendShapeName: Pose
+  Preset: 2
+  Values:
+  - RelativePath: face
+    Index: 5
+    Weight: 6.6
+  - RelativePath: face
+    Index: 8
+    Weight: 100
+  - RelativePath: face
+    Index: 11
+    Weight: 32.3
+  - RelativePath: face
+    Index: 12
+    Weight: 6.3
+  MaterialValues: []
+  IsBinary: 0

@@ -1,0 +1,137 @@
+﻿VRoid SDK 更新履歴
+=======================
+
+v0.0.21 (2020-04-01)
+-----------------------
+
+▼ 変更内容
+Features:
+- CharacterModelVersionのプロパティ情報を取得する機能を追加
+  - GetCharacterModelVersionsProperty
+  - PostCharacterModelsPropertiesBatch
+- VRoidHubのピックアップモデルを取得するAPIを追加
+  - GetStaffPicks
+- VRoidHubへの写真の投稿、投稿した写真一覧の取得機能を追加
+  - Examples/ArtworkExampleやREADMEのGetting startedを参考
+- ライセンス表示に利用可能なローカライズ機能を追加
+
+Deprecations:
+- CharacterModelVersionの一部フィールドを廃止予定
+  - 今後のアップデートでCharacterModelVersionに存在する一部フィールドが廃止される予定です。代わりに、CharacterModelPropertyを利用するように変更してください
+
+Changes:
+- (iOS) Unity2019.3で `PBXProject.GetUnityTargetName()` が廃止されたため追従
+- DescriptionFragmentのtypeにtagを追加しました
+- CharacterModelに他人の利用可を判定するis_other_users_availableを追加しました
+- 同梱するUniVRMのバージョンをv0.55にアップデート
+- CharacterModelのExampleを※VRoid SDK ガイドラインに合わせて修正
+
+※ VRoid SDK ガイドライン: https://vroid.pixiv.help/hc/ja/articles/900000213643-VRoid-SDK-ガイドライン
+
+Breaking Changes:
+- CharacterModelのis_downloadableの意味を変更
+  - 従来まで他人の利用可を意味するフィールドだったのが、今回からVRoidHubのWebページ上からVRMをダウンロードできるかどうかを意味するものになります。従来通りSDKで利用できる他人のモデルかどうかの判定にはCharacterModel#is_other_users_availableをご利用ください
+- CharacterModelExampleの修正に伴い、従来のExampleを使った実装方法の変更
+  - 従来まで使われていたExampleのコードの大部分が削除され、スクリプトの実装方法が変更されます
+  - Prefabにも修正が入っているため、READMEのGetting startedを参考に再度新しいPrefabの設定とスクリプトの修正をお願いいたします
+
+Removed:
+- 廃止したisDownloadableを引数にとるAPIメソッドを削除
+
+v0.0.20 (2019-10-18)
+-----------------------
+
+▼ サポート環境に関する注意点
+- iOSのバージョン9未満がサポート対象外になり、Deployment TargetがiOS9未満の場合にXcodeでビルドできなくなりました。File -> Build Settings -> Player Settings... のTarget minimum iOS Versionを9.0以上に設定してください。
+
+▼ 変更内容
+Features:
+- OAuthで連携するときのセキュリティを強化
+  - PKCEを利用するようになりました
+  - CSRF対策をしました
+
+Breaking Changes:
+- セキュリティ強化にともない、BrowserAuthorizeのOpenBrowserとRegisterCodeを呼び出すインスタンスが異なる場合は連携に失敗するように変更
+  - 同じBrowserAuthorizeインスタンスでOpenBrowserとRegisterCodeを実行するようになっていない場合は修正してください。
+  - Exampleと同じ実装の場合は問題ありません。
+- BrowserAuthorizeのGameObjectが複数生成されないように修正
+  - BrowserAuthorize.GenerateInstanceでGameObjectを生成したとき、古いBrowserAuthorizeのGameObjectを破棄するようになりました。
+
+Bug Fixes:
+- (iOS)iOS 13向けにビルドすると、BrowserAuthorizeのOpenBrowserが正しく動かない問題を修正 (Thanks t5ujiri)
+
+Changes:
+- (iOS)IMPL_APP_CONTROLLER_SUBCLASSを実行するコードを追加しなくてもiOS 9とiOS 10で連携できるように変更
+  - v0.0.18やv0.0.19でiOS 9とiOS 10をサポートするために追加したコードは削除しても問題ありません。
+  - VRoidSDKAppControllerを継承して利用している場合はUnityAppControllerを継承するように変更してください。
+
+Deprecations:
+- (iOS)VRoidSDKAppControllerを廃止予定に変更
+  - 互換性維持のために定義が残っていますが、今後のアップデートで削除されます。
+  - VRoidSDKAppControllerを継承して利用している場合はUnityAppControllerを継承するように変更してください。
+
+Removed:
+- (iOS)iOS 9未満のサポートを終了
+  - iOSのバージョン9未満がサポート対象外になり、Deployment TargetがiOS9未満の場合にXcodeでビルドできなくなりました。
+  - File -> Build Settings -> Player Settings... のTarget minimum iOS Versionを9.0以上に設定してください。
+
+
+v0.0.19 (2019-08-23)
+-----------------------
+
+▼ 変更内容
+Bug Fixes:
+- (Android)Editorモードでログインしようとしたとき、認可コード入力のウィンドウがアクティブになるとログインに失敗する問題を修正
+
+
+v0.0.18 (2019-08-07)
+-----------------------
+
+▼ サポート環境に関する注意点
+- .NET 3.5は非推奨になります。次回以降のアップデートで .NET 3.5はサポートされなくなります。
+- iOSのバージョン9未満がサポート対象外になります。次回以降のアップデートで、Deployment TargetがiOS9未満の場合にビルドできなくなるため、Deployment TargetをiOS9以上に設定することを推奨します。Deployment TargetはFile -> Build Settings -> Player Settings... のTarget minimum iOS Versionで設定できます。
+
+▼ 変更内容
+Features:
+- VRoid HubのURLを生成する HubRouteUri クラスを追加
+- VRMのダウンロードのタイムアウトを設定できるオプションを追加
+  - HubModelDeserializer.LoadCharacterAsyncの第二引数にHubModelDeserializerOptionを指定できるようになりました
+  - HubModelDeserializerOptionは最大で保持するキャッシュの数とダウンロードのタイムアウトを設定できます
+
+Bug Fixes:
+- (Android)ブラウザ認証のコールバックが呼ばれたとき、コールバックURLが正しくない場合にもコールバックが呼ばれるよう修正
+- (iOS/Android)意図しないURLスキーマでフォーカスが連携アプリに戻ったときにエラーになるように修正
+- (Android)Androidでブラウザ認証のコールバックが2度呼ばれていたのを修正
+- (Windows)IL2CPPでビルドすると正常に動作しない問題を修正
+- アクセストークンの有効期限が切れているとAuthentication.Instance.IsAuthorizedがfalseを返す問題を修正
+- VRoid Hubでモデルを更新しても24時間経過しないとSDKで反映されない問題を修正
+- HubModelDeserializer.LoadCharacterAsyncおよび、HubApi.GetDownloadLicenseDownloadのonProgressでprogressが途中で0.5に戻ることがある問題を修正
+
+Changes:
+- UniVRMをv0.51.0に更新
+- VRoidSDK関連のファイルが`Assets/VRoidSDK`以下で完結するように `AndroidManifest.xml.example` を`Assets/VRoidSDK/Android`以下に移動
+- HubApi.GetDownloadLicenseDownloadのデフォルトのタイムアウトを2分から5分に変更
+- HubApi.GetDownloadLicenseDownload以外のHubApiのメソッドのデフォルトのタイムアウトを2分から30秒に変更
+
+Breaking Changes:
+- VRoidSDKのネームスペースを整理
+  - SDKConfigurationクラスはVRoidSDK配下に移動
+  - AuthenticationクラスはVRoidSDK.OAuth配下に移動
+- iOS向けビルド時にSDK側でIMPL_APP_CONTROLLER_SUBCLASSを実行しないように変更
+  - iOS11未満をサポートする場合や、URL Schemeで起動できるようにしたい場合はIMPL_APP_CONTROLLER_SUBCLASSを実行するコードを追加する必要があります
+  - READMEに実装例を追記したので参考にしてください
+
+Deprecations:
+- Authentication.AuthorizedRequestを廃止予定に変更
+  - Authentication.CreateAuthorizedHttpConnectionを使用してください
+- 第一引数が`string characterModelId`のHubModelDeserializer.LoadCharacterAsyncを廃止予定に変更
+  - 第一引数が`CharacterModel characterModel`のHubModelDeserializer.LoadCharacterAsyncを使用してください
+- .NET 3.5での利用を非推奨に変更
+  - 次回以降のアップデートで .NET 3.5はサポートされなくなるので、 .NET 4.xへの移行をお願いします
+- iOS9未満をサポート対象外に変更
+  -次回以降のアップデートでDeployment TargetがiOS9未満の場合にビルドできなくなるため、Deployment TargetをiOS9以上に設定することを推奨します
+  - Deployment TargetはFile -> Build Settings -> Player Settings... のTarget minimum iOS Versionで設定できます
+
+Removed:
+- 引数にisDownloadableを含むHubApi.PostCharacterModelBatchとHubApi.GetHeartsを廃止
+  - 引数にisDownloadableを含まないメソッドを使用してください
