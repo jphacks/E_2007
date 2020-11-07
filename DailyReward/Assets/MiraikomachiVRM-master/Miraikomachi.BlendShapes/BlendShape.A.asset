@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37562b39ff933b245ac2f35d87edbcd6, type: 3}
   m_Name: BlendShape.A
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 399016103971757014, guid: 81da78fde9dd115499dd9c7ba003d2f3, type: 3}
   BlendShapeName: A
-  Preset: 2
+  Preset: 0
   Values:
   - RelativePath: face
     Index: 0

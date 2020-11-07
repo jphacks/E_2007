@@ -8,12 +8,12 @@ public class FaceAnim : MonoBehaviour
 {
     private VRMBlendShapeProxy proxy;
     public GameObject komachi;
-    public Toggle egao;
-    public Toggle defo;
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = komachi.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,22 +26,19 @@ public class FaceAnim : MonoBehaviour
             proxy = komachi.GetComponent<VRMBlendShapeProxy>();
         }
 
-        if (egao.isOn)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            proxy.SetValue(BlendShapePreset.Fun,1f);
-        }
-        else
-        {
-            proxy.SetValue(BlendShapePreset.Fun, 0f);
+            proxy.SetValue(BlendShapePreset.Fun, 1f);
+            anim.Play("reward");
         }
 
-        if (defo.isOn)
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            proxy.SetValue(BlendShapePreset.Neutral, 1f);
+            proxy.SetValue(BlendShapePreset.Fun, 0f);
+            //proxy.SetValue(BlendShapePreset.A, 1f);
+            anim.Play("pose");
         }
-        else
-        {
-            proxy.SetValue(BlendShapePreset.Neutral, 0f);
-        }
+
+        
     }
 }

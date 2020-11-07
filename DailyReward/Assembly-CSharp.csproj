@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\Connection.cs" />
     <Compile Include="Assets\Script\FaceAnim.cs" />
     <Compile Include="Assets\Script\MiniJSON.cs" />
+    <Compile Include="Assets\Script\Mock.cs" />
     <Compile Include="Assets\Script\TestConnection.cs" />
     <Compile Include="Assets\UnityChanSpringBone\UnityChan.SpringBone\Script\SpringBone\AngleLimits.cs" />
     <Compile Include="Assets\UnityChanSpringBone\UnityChan.SpringBone\Script\SpringBone\Colliders\Circle3.cs" />
@@ -749,14 +750,14 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.28f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/Code/E_2007/DailyReward/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>D:/Code/E_2007/DailyReward/Assets/VRoidSDK/Plugins/JsonDotNet/Assemblies/AOT/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="VRoidSDK">
       <HintPath>D:/Code/E_2007/DailyReward/Assets/VRoidSDK/Plugins/VRoidSDK/VRoidSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>D:/Code/E_2007/DailyReward/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.28f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
