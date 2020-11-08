@@ -10,7 +10,7 @@ public class Mock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pointText = GameObject.Find("Point").GetComponent<Text>();
+        //pointText = GameObject.Find("Point").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class Mock : MonoBehaviour
     public void AddStress()
     {
         point += 1;
-        pointText.text = point.ToString();
+        //pointText.text = point.ToString();
     }
 
 }

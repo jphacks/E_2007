@@ -63,6 +63,9 @@
     <Compile Include="Assets\MToon\Scripts\Utils.cs" />
     <Compile Include="Assets\Script\Connection.cs" />
     <Compile Include="Assets\Script\FaceAnim.cs" />
+    <Compile Include="Assets\Script\HomeScript.cs" />
+    <Compile Include="Assets\Script\InputButton.cs" />
+    <Compile Include="Assets\Script\JsonNode.cs" />
     <Compile Include="Assets\Script\MiniJSON.cs" />
     <Compile Include="Assets\Script\Mock.cs" />
     <Compile Include="Assets\Script\TestConnection.cs" />

@@ -16,8 +16,7 @@ public class FaceAnim : MonoBehaviour
         anim = komachi.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    [System.Obsolete]
+
     void Update()
     {
         
@@ -25,11 +24,12 @@ public class FaceAnim : MonoBehaviour
         {
             proxy = komachi.GetComponent<VRMBlendShapeProxy>();
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.Return))
         {
             proxy.SetValue(BlendShapePreset.Fun, 1f);
             anim.Play("reward");
+            anim.SetInteger("animInt", 1);
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -37,8 +37,25 @@ public class FaceAnim : MonoBehaviour
             proxy.SetValue(BlendShapePreset.Fun, 0f);
             //proxy.SetValue(BlendShapePreset.A, 1f);
             anim.Play("pose");
-        }
+            anim.SetInteger("animInt", 0);
+        }*/
 
         
+    }
+
+    [System.Obsolete]
+    public void RewardTime()
+    {
+        proxy.SetValue(BlendShapePreset.Fun, 1f);
+        anim.Play("reward");
+        anim.SetInteger("animInt", 1);
+    }
+
+    [System.Obsolete]
+    public void EndRewardTime()
+    {
+        proxy.SetValue(BlendShapePreset.Fun, 0f);
+        anim.Play("pose");
+        anim.SetInteger("animInt", 0);
     }
 }
