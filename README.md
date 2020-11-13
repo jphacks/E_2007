@@ -1,5 +1,4 @@
 # ハピネスチャージャー
-[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2020/09/JPHACKS2020_ogp.jpg)](https://www.youtube.com/watch?v=G5rULR53uMk)
 ![Happiness_charger.png](https://github.com/jphacks/E_2007/blob/master/images/Happiness%20charger.png?raw=true)
 
 ## 製品概要
